@@ -12,9 +12,14 @@
 }
 
 
-- (void) _validatePhoneNumberField:(id)sender
+- (void) _validatePhoneNumberField:(UITextField*)sender
 {
-    NSLog(@"%@", sender);
+    NSString* text = [sender text];
+    if ([text length] == 4 && ![text hasSuffix:@"-"] ) {
+        NSString* first = [text substringToIndex:3];
+        NSString* last = [text substringFromIndex:3];
+        [sender setText:[NSString stringWithFormat:@"%@-%@", first, last]];
+    }
 }
 
 @end

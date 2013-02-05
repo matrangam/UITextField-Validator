@@ -10,7 +10,7 @@
 {
     [super viewDidLoad];
     
-
+    [_textInputTwo becomeFirstResponder];
 }
 
 @end
