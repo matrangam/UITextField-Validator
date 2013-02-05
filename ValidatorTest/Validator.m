@@ -19,6 +19,10 @@
         NSString* first = [text substringToIndex:3];
         NSString* last = [text substringFromIndex:3];
         [sender setText:[NSString stringWithFormat:@"%@-%@", first, last]];
+    } else if ([text length] == 8 && ![text hasSuffix:@"-"] ) {
+        NSString* first = [text substringToIndex:7];
+        NSString* last = [text substringFromIndex:7];
+        [sender setText:[NSString stringWithFormat:@"%@-%@", first, last]];        
     }
 }
 
