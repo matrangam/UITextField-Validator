@@ -25,6 +25,9 @@
         [sender setText:[NSString stringWithFormat:@"%@-%@", first, last]];        
     } else if ([text length] >= 12) {
         [sender setText:[text substringToIndex:12]];
+        [sender setTextColor:[UIColor redColor]];
+    } else if ([text length] < 12) {
+        [sender setTextColor:[UIColor blackColor]];
     }
 }
 

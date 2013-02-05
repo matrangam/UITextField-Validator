@@ -12,13 +12,17 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GmV-rU-olf">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GmV-rU-olf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bma-dw-bKw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1o9-j6-6kI">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Phone Number" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="1o9-j6-6kI">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="e2X-d1-qC4"/>
+                                    <constraint firstAttribute="width" constant="196" id="HG8-pm-W08"/>
+                                    <constraint firstAttribute="height" constant="30" id="z6d-x7-t1p"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -26,11 +30,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1o9-j6-6kI" firstAttribute="top" secondItem="3" secondAttribute="top" constant="137" id="Sft-IX-Zin"/>
-                            <constraint firstItem="1o9-j6-6kI" firstAttribute="centerX" secondItem="GmV-rU-olf" secondAttribute="centerX" type="default" id="WgE-EC-JnI"/>
+                            <constraint firstItem="1o9-j6-6kI" firstAttribute="centerX" secondItem="GmV-rU-olf" secondAttribute="centerX" type="default" id="Lng-At-2ZK"/>
+                            <constraint firstItem="1o9-j6-6kI" firstAttribute="top" secondItem="3" secondAttribute="top" constant="142" id="RRY-D5-c3N"/>
                             <constraint firstItem="GmV-rU-olf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="70" id="atl-jc-W7l"/>
-                            <constraint firstItem="GmV-rU-olf" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jeh-IN-KZg"/>
-                            <constraint firstAttribute="trailing" secondItem="GmV-rU-olf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="wkJ-4Q-gd3"/>
+                            <constraint firstAttribute="trailing" secondItem="GmV-rU-olf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cHH-iE-PY3"/>
+                            <constraint firstItem="GmV-rU-olf" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="jeh-IN-KZg"/>
                         </constraints>
                     </view>
                     <connections>
