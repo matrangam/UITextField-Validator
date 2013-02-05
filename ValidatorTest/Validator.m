@@ -23,6 +23,8 @@
         NSString* first = [text substringToIndex:7];
         NSString* last = [text substringFromIndex:7];
         [sender setText:[NSString stringWithFormat:@"%@-%@", first, last]];        
+    } else if ([text length] >= 12) {
+        [sender setText:[text substringToIndex:12]];
     }
 }
 
