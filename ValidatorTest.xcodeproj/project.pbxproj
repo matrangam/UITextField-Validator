@@ -18,6 +18,7 @@
 		D6B71B9F16C08EEA0062A456 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6B71B9E16C08EEA0062A456 /* Default-568h@2x.png */; };
 		D6B71BA216C08EEA0062A456 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B71BA016C08EEA0062A456 /* MainStoryboard.storyboard */; };
 		D6B71BA516C08EEA0062A456 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B71BA416C08EEA0062A456 /* ViewController.m */; };
+		D6B71BAD16C0901B0062A456 /* Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B71BAC16C0901B0062A456 /* Validator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		D6B71BA116C08EEA0062A456 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D6B71BA316C08EEA0062A456 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D6B71BA416C08EEA0062A456 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D6B71BAB16C0901B0062A456 /* Validator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validator.h; sourceTree = "<group>"; };
+		D6B71BAC16C0901B0062A456 /* Validator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				D6B71BA016C08EEA0062A456 /* MainStoryboard.storyboard */,
 				D6B71BA316C08EEA0062A456 /* ViewController.h */,
 				D6B71BA416C08EEA0062A456 /* ViewController.m */,
+				D6B71BAB16C0901B0062A456 /* Validator.h */,
+				D6B71BAC16C0901B0062A456 /* Validator.m */,
 				D6B71B8F16C08EEA0062A456 /* Supporting Files */,
 			);
 			path = ValidatorTest;
@@ -176,6 +181,7 @@
 				D6B71B9516C08EEA0062A456 /* main.m in Sources */,
 				D6B71B9916C08EEA0062A456 /* AppDelegate.m in Sources */,
 				D6B71BA516C08EEA0062A456 /* ViewController.m in Sources */,
+				D6B71BAD16C0901B0062A456 /* Validator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

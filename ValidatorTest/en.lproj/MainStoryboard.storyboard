@@ -16,9 +16,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1o9-j6-6kI">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="e2X-d1-qC4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1o9-j6-6kI" firstAttribute="top" secondItem="3" secondAttribute="top" constant="137" id="Sft-IX-Zin"/>
+                            <constraint firstItem="1o9-j6-6kI" firstAttribute="centerX" secondItem="GmV-rU-olf" secondAttribute="centerX" type="default" id="WgE-EC-JnI"/>
                             <constraint firstItem="GmV-rU-olf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="70" id="atl-jc-W7l"/>
                             <constraint firstItem="GmV-rU-olf" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jeh-IN-KZg"/>
                             <constraint firstAttribute="trailing" secondItem="GmV-rU-olf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="wkJ-4Q-gd3"/>
@@ -26,12 +35,37 @@
                     </view>
                     <connections>
                         <outlet property="textInputOne" destination="GmV-rU-olf" id="v7f-5F-n2Q"/>
+                        <outlet property="textInputTwo" destination="1o9-j6-6kI" id="6bS-U8-i0R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <customObject id="JCR-nY-tub" customClass="Validator">
+                    <connections>
+                        <outletCollection property="phoneNumberFields" destination="GmV-rU-olf" id="Flt-59-Wks"/>
+                        <outletCollection property="phoneNumberFields" destination="1o9-j6-6kI" id="UBe-PH-Yr6"/>
+                    </connections>
+                </customObject>
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="Validator" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Validator.h"/>
+            <relationships>
+                <relationship kind="outletCollection" name="phoneNumberFields" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="textInputOne" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textInputTwo" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
