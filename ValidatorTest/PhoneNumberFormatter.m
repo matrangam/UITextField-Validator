@@ -8,8 +8,6 @@
 - (id)init {
     
     NSArray *usPhoneFormats = @[
-                               @"+1 (###) ###-####",
-                               @"1 (###) ###-####",
                                @"011 $",
                                @"###-####",
                                @"(###) ###-####"
@@ -30,11 +28,13 @@
                                @"(0#) #######",
                                @"(0#) #### ####"
                                 ];
+    NSArray* usDateFormats = @[@"##/##/####"];
     
     predefinedFormats = @{
                           @"us": usPhoneFormats,
                           @"uk": ukPhoneFormats,
                           @"jp": jpPhoneFormats,
+                          @"us-date": usDateFormats
                           };
     return self;
 }
