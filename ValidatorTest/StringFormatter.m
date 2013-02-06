@@ -1,11 +1,12 @@
 //  Created by Ahmed Abdelkader on 1/22/10.
 //  This work is licensed under a Creative Commons Attribution 3.0 License.
 
-#import "PhoneNumberFormatter.h"
+#import "StringFormatter.h"
 
-@implementation PhoneNumberFormatter
+@implementation StringFormatter
 
-- (id)init {
+- (id) init
+{
     
     NSArray *usPhoneFormats = @[
                                @"011 $",
@@ -13,40 +14,23 @@
                                @"(###) ###-####"
                                ];
     
-    
-    NSArray *ukPhoneFormats = @[
-                               @"+44 ##########",
-                               @"00 $",
-                               @"0### - ### ####",
-                               @"0## - #### ####",
-                               @"0#### - ######"
-                                ];
-    
-    NSArray *jpPhoneFormats = @[
-                               @"+81 ############",
-                               @"001 $",
-                               @"(0#) #######",
-                               @"(0#) #### ####"
-                                ];
     NSArray* usDateFormats = @[@"##/##/####"];
     
     predefinedFormats = @{
                           @"us": usPhoneFormats,
-                          @"uk": ukPhoneFormats,
-                          @"jp": jpPhoneFormats,
                           @"us-date": usDateFormats
                           };
     return self;
 }
 
-- (NSString*) format:(NSString*)phoneNumber withLocale:(NSString*)locale
+- (NSString*) format:(NSString*)inputString withLocale:(NSString*)locale
 {
     NSArray *localeFormats = [predefinedFormats objectForKey:locale];
     if (localeFormats == nil) {
-        return phoneNumber;
+        return inputString;
     }
     
-    NSString *input = [self _strip:phoneNumber];    
+    NSString *input = [self _strip:inputString];    
     for (NSString *phoneFormat in localeFormats) {
         int i = 0;
         
@@ -54,7 +38,7 @@
         
         for (int p = 0; temp != nil && i < [input length] && p < [phoneFormat length]; p++) {
             char c = [phoneFormat characterAtIndex:p];
-            BOOL required = [self _canBeInputByPhonePad:c];
+            BOOL required = [self _canBeInputByNumberPad:c];
             char next = [input characterAtIndex:i];
             switch(c) {
                 case '$':
@@ -94,19 +78,19 @@
     return input;
 }
 
-- (NSString*) _strip:(NSString*)phoneNumber
+- (NSString*) _strip:(NSString*)inputString
 {
     NSMutableString *res = [[NSMutableString alloc] init];
-    for (int i = 0; i < [phoneNumber length]; i++) {
-        char next = [phoneNumber characterAtIndex:i];
-        if ([self _canBeInputByPhonePad:next]) {
+    for (int i = 0; i < [inputString length]; i++) {
+        char next = [inputString characterAtIndex:i];
+        if ([self _canBeInputByNumberPad:next]) {
             [res appendFormat:@"%c", next];
         }
     }
     return res;
 }
 
-- (BOOL) _canBeInputByPhonePad:(char)c
+- (BOOL) _canBeInputByNumberPad:(char)c
 {
     if (c == '+' || c == '*' || c == '#') {
         return YES;

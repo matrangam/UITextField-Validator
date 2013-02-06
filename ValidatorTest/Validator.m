@@ -1,5 +1,5 @@
 #import "Validator.h"
-#import "PhoneNumberFormatter.h"
+#import "StringFormatter.h"
 
 @implementation Validator
 
@@ -19,7 +19,7 @@
 - (void) _validatePhoneNumberField:(UITextField*)sender
 {
     if ([sender.text length] <= 14) {
-        PhoneNumberFormatter* formatter = [[PhoneNumberFormatter alloc] init];
+        StringFormatter* formatter = [[StringFormatter alloc] init];
         [sender setText:[formatter format:sender.text withLocale:@"us"]];
     } else {
         [sender setText:[sender.text substringToIndex:14]];
@@ -29,7 +29,7 @@
 - (void) _validateDateField:(UITextField*)sender
 {
     if ([sender.text length] <= 10) {
-        PhoneNumberFormatter* formatter = [[PhoneNumberFormatter alloc] init];
+        StringFormatter* formatter = [[StringFormatter alloc] init];
         [sender setText:[formatter format:sender.text withLocale:@"us-date"]];
     } else {
         [sender setText:[sender.text substringToIndex:10]];

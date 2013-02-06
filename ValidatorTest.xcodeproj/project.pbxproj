@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D6B655D016C1DE450064774F /* PhoneNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B655CF16C1DE450064774F /* PhoneNumberFormatter.m */; };
+		D6B655D016C1DE450064774F /* StringFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B655CF16C1DE450064774F /* StringFormatter.m */; };
 		D6B71B8916C08EEA0062A456 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B71B8816C08EEA0062A456 /* UIKit.framework */; };
 		D6B71B8B16C08EEA0062A456 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B71B8A16C08EEA0062A456 /* Foundation.framework */; };
 		D6B71B8D16C08EEA0062A456 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B71B8C16C08EEA0062A456 /* CoreGraphics.framework */; };
@@ -23,8 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D6B655CE16C1DE450064774F /* PhoneNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumberFormatter.h; sourceTree = "<group>"; };
-		D6B655CF16C1DE450064774F /* PhoneNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumberFormatter.m; sourceTree = "<group>"; };
+		D6B655CE16C1DE450064774F /* StringFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringFormatter.h; sourceTree = "<group>"; };
+		D6B655CF16C1DE450064774F /* StringFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringFormatter.m; sourceTree = "<group>"; };
 		D6B71B8516C08EEA0062A456 /* ValidatorTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ValidatorTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B71B8816C08EEA0062A456 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D6B71B8A16C08EEA0062A456 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,8 +96,8 @@
 				D6B71BA416C08EEA0062A456 /* ViewController.m */,
 				D6B71BAB16C0901B0062A456 /* Validator.h */,
 				D6B71BAC16C0901B0062A456 /* Validator.m */,
-				D6B655CE16C1DE450064774F /* PhoneNumberFormatter.h */,
-				D6B655CF16C1DE450064774F /* PhoneNumberFormatter.m */,
+				D6B655CE16C1DE450064774F /* StringFormatter.h */,
+				D6B655CF16C1DE450064774F /* StringFormatter.m */,
 				D6B71B8F16C08EEA0062A456 /* Supporting Files */,
 			);
 			path = ValidatorTest;
@@ -187,7 +187,7 @@
 				D6B71B9916C08EEA0062A456 /* AppDelegate.m in Sources */,
 				D6B71BA516C08EEA0062A456 /* ViewController.m in Sources */,
 				D6B71BAD16C0901B0062A456 /* Validator.m in Sources */,
-				D6B655D016C1DE450064774F /* PhoneNumberFormatter.m in Sources */,
+				D6B655D016C1DE450064774F /* StringFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
