@@ -10,12 +10,7 @@
 - (id) init
 {
     if (nil != (self = [super init])) {
-        NSArray *usPhoneFormats = @[
-                                    @"011 $",
-                                    @"###-####",
-                                    @"(###) ###-####"
-                                    ];
-        
+        NSArray *usPhoneFormats = @[@"(###) ###-####"];
         NSArray* usDateFormats = @[@"##/##/####"];
         
         _predefinedFormats = @{
