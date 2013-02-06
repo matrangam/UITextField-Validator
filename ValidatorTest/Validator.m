@@ -61,6 +61,11 @@
 {
     if ([sender.text length] <= 10) {
         [sender setText:[self _format:sender.text withLocale:@"us-date"]];
+
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"mm/dd/yyyy"];
+        NSLog(@"%@", [dateFormat dateFromString:sender.text]);
+
     } else {
         [sender setText:[sender.text substringToIndex:10]];
     }
