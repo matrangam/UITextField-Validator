@@ -1,4 +1,5 @@
 #import "Validator.h"
+#import "PhoneNumberFormatter.h"
 
 @implementation Validator
 
@@ -11,23 +12,13 @@
     }
 }
 
-
 - (void) _validatePhoneNumberField:(UITextField*)sender
 {
-    NSString* text = [sender text];
-    if ([text length] == 4 && ![text hasSuffix:@"-"] ) {
-        NSString* first = [text substringToIndex:3];
-        NSString* last = [text substringFromIndex:3];
-        [sender setText:[NSString stringWithFormat:@"%@-%@", first, last]];
-    } else if ([text length] == 8 && ![text hasSuffix:@"-"] ) {
-        NSString* first = [text substringToIndex:7];
-        NSString* last = [text substringFromIndex:7];
-        [sender setText:[NSString stringWithFormat:@"%@-%@", first, last]];        
-    } else if ([text length] >= 12) {
-        [sender setText:[text substringToIndex:12]];
-        [sender setTextColor:[UIColor redColor]];
-    } else if ([text length] < 12) {
-        [sender setTextColor:[UIColor blackColor]];
+    if ([sender.text length] <= 14) {
+        PhoneNumberFormatter* formatter = [[PhoneNumberFormatter alloc] init];
+        [sender setText:[formatter format:sender.text withLocale:@"us"]];
+    } else {
+        [sender setText:[sender.text substringToIndex:14]];
     }
 }
 

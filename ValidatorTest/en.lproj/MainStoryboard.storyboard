@@ -18,6 +18,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="t7t-0E-J4L"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Phone Number" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="1o9-j6-6kI">
                                 <constraints>
@@ -45,7 +48,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <customObject id="JCR-nY-tub" customClass="Validator">
                     <connections>
-                        <outletCollection property="phoneNumberFields" destination="GmV-rU-olf" id="Flt-59-Wks"/>
                         <outletCollection property="phoneNumberFields" destination="1o9-j6-6kI" id="UBe-PH-Yr6"/>
                     </connections>
                 </customObject>
