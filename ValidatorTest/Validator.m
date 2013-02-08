@@ -43,7 +43,7 @@
 - (void) _validatePhoneNumberField:(UITextField*)sender
 {
     if ([sender.text length] <= 14) {
-        [sender setText:[self _format:sender.text withLocale:@"us"]];
+        [sender setText:[self _formatInputString:sender.text withType:@"us"]];
     } else {
         [sender setText:[sender.text substringToIndex:14]];
     }
@@ -55,7 +55,7 @@
 - (void) _validateDateField:(UITextField*)sender
 {
     if ([sender.text length] <= 10) {
-        [sender setText:[self _format:sender.text withLocale:@"us-date"]];
+        [sender setText:[self _formatInputString:sender.text withType:@"us-date"]];
 
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"mm/dd/yyyy"];
@@ -69,7 +69,7 @@
 
 # pragma mark - Formatter
 
-- (NSString*) _format:(NSString*)inputString withLocale:(NSString*)locale
+- (NSString*) _formatInputString:(NSString*)inputString withType:(NSString*)locale
 {
     NSArray *localeFormats = [_predefinedFormats objectForKey:locale];
     if (localeFormats == nil) {
