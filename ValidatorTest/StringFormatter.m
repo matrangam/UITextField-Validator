@@ -1,36 +1,42 @@
-//  Created by Ahmed Abdelkader on 1/22/10.
+//  Based on what was Created by Ahmed Abdelkader on 1/22/10.
 //  This work is licensed under a Creative Commons Attribution 3.0 License.
 
 #import "StringFormatter.h"
 
-@implementation StringFormatter
+@implementation StringFormatter 
 
-- (id) init
+NSString* const StringFormatterTypePhoneUS = @"US";
+NSString* const StringFormatterTypeDateUS = @"US-DATE";
+
+NSString* const StringFormatterPhoneTypeUS = @"(###) ###-####";
+NSString* const StringFormatterDateTypeUS = @"##/##/####";
+
++ (NSDictionary*) predefinedFormats
 {
-    
-    NSArray *usPhoneFormats = @[
-                               @"011 $",
-                               @"###-####",
-                               @"(###) ###-####"
-                               ];
-    
-    NSArray* usDateFormats = @[@"##/##/####"];
-    
-    predefinedFormats = @{
-                          @"us": usPhoneFormats,
-                          @"us-date": usDateFormats
-                          };
-    return self;
+    static NSDictionary* map;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSArray *usPhoneFormats = @[StringFormatterPhoneTypeUS];
+        NSArray* usDateFormats = @[StringFormatterDateTypeUS];
+
+        map = @{
+            StringFormatterTypePhoneUS: usPhoneFormats,
+            StringFormatterTypeDateUS: usDateFormats
+        };
+    });
+    return map;
 }
 
-- (NSString*) format:(NSString*)inputString withLocale:(NSString*)locale
+# pragma mark - Formatter
+
+- (NSString*) formatInputString:(NSString*) inputString withType:(NSString*) type
 {
-    NSArray *localeFormats = [predefinedFormats objectForKey:locale];
+    NSArray *localeFormats = [[self.class predefinedFormats] objectForKey:type];
     if (localeFormats == nil) {
         return inputString;
     }
     
-    NSString *input = [self _strip:inputString];    
+    NSString *input = [self _strip:inputString];
     for (NSString *phoneFormat in localeFormats) {
         int i = 0;
         
@@ -77,6 +83,9 @@
     }
     return input;
 }
+
+
+# pragma mark - Formatter Helper
 
 - (NSString*) _strip:(NSString*)inputString
 {

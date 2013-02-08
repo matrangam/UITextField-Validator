@@ -1,7 +1,9 @@
 #import "Validator.h"
+#import "StringFormatter.h"
 
 @implementation Validator {
     NSDictionary* _predefinedFormats;
+    StringFormatter* _formatter;
 }
 
 
@@ -10,13 +12,7 @@
 - (id) init
 {
     if (nil != (self = [super init])) {
-        NSArray *usPhoneFormats = @[@"(###) ###-####"];
-        NSArray* usDateFormats = @[@"##/##/####"];
-        
-        _predefinedFormats = @{
-                              @"us": usPhoneFormats,
-                              @"us-date": usDateFormats
-                              };
+        _formatter = [[StringFormatter alloc] init];
     }
     return self;
 }
@@ -43,7 +39,7 @@
 - (void) _validatePhoneNumberField:(UITextField*)sender
 {
     if ([sender.text length] <= 14) {
-        [sender setText:[self _formatInputString:sender.text withType:@"us"]];
+        [sender setText:[_formatter formatInputString:sender.text withType:StringFormatterTypePhoneUS]];
     } else {
         [sender setText:[sender.text substringToIndex:14]];
     }
@@ -55,7 +51,7 @@
 - (void) _validateDateField:(UITextField*)sender
 {
     if ([sender.text length] <= 10) {
-        [sender setText:[self _formatInputString:sender.text withType:@"us-date"]];
+        [sender setText:[_formatter formatInputString:sender.text withType:StringFormatterTypeDateUS]];
 
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"mm/dd/yyyy"];
@@ -64,91 +60,6 @@
     } else {
         [sender setText:[sender.text substringToIndex:10]];
     }
-}
-
-
-# pragma mark - Formatter
-
-- (NSString*) _formatInputString:(NSString*)inputString withType:(NSString*)locale
-{
-    NSArray *localeFormats = [_predefinedFormats objectForKey:locale];
-    if (localeFormats == nil) {
-        return inputString;
-    }
-    
-    NSString *input = [self _strip:inputString];
-    for (NSString *phoneFormat in localeFormats) {
-        int i = 0;
-        
-        NSMutableString *temp = [[NSMutableString alloc] init];
-        
-        for (int p = 0; temp != nil && i < [input length] && p < [phoneFormat length]; p++) {
-            char c = [phoneFormat characterAtIndex:p];
-            BOOL required = [self _canBeInputByNumberPad:c];
-            char next = [input characterAtIndex:i];
-            switch(c) {
-                case '$':
-                    p--;
-                    [temp appendFormat:@"%c", next]; i++;
-                    break;
-                case '#':
-                    if (next < '0' || next > '9') {
-                        temp = nil;
-                        break;
-                    }
-                    
-                    [temp appendFormat:@"%c", next]; i++;
-                    break;
-                default:
-                    if (required) {
-                        if (next != c) {
-                            temp = nil;
-                            break;
-                        }
-                        
-                        [temp appendFormat:@"%c", next]; i++;
-                    } else {
-                        [temp appendFormat:@"%c", c];
-                        if (next == c) {
-                            i++;
-                        }
-                    }
-                    break;
-            }
-        }
-        
-        if (i == [input length]) {
-            return temp;
-        }
-    }
-    return input;
-}
-
-
-# pragma mark - Formatter Helper
-
-- (NSString*) _strip:(NSString*)inputString
-{
-    NSMutableString *res = [[NSMutableString alloc] init];
-    for (int i = 0; i < [inputString length]; i++) {
-        char next = [inputString characterAtIndex:i];
-        if ([self _canBeInputByNumberPad:next]) {
-            [res appendFormat:@"%c", next];
-        }
-    }
-    return res;
-}
-
-- (BOOL) _canBeInputByNumberPad:(char)c
-{
-    if (c == '+' || c == '*' || c == '#') {
-        return YES;
-    }
-    
-    if (c >= '0' && c <= '9') {
-        return YES;
-    }
-    return NO;
 }
 
 @end

@@ -4,7 +4,9 @@
     NSDictionary *predefinedFormats;
 }
 
-- (id)init;
-- (NSString*) format:(NSString*) inputString withLocale:(NSString*) locale;
+extern NSString* const StringFormatterTypePhoneUS;
+extern NSString* const StringFormatterTypeDateUS;
+
+- (NSString*) formatInputString:(NSString*)inputString withType:(NSString*)locale;
 
 @end
